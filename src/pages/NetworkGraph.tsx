@@ -21,6 +21,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ nodes, edges }) => {
         nodes: {
           shape: 'dot',
           size: 15,
+          font: {
+            size: 14, // Font size for labels
+            color: '#343434', // Color of node labels
+          },
         },
         edges: {
           color: '#848484',
@@ -29,6 +33,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ nodes, edges }) => {
               enabled: true,
               scaleFactor: 1,
             },
+          },
+          font: {
+            size: 12, // Font size for edge labels
+            color: '#848484', // Color of edge labels
           },
         },
         physics: {
