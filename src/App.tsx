@@ -1,8 +1,8 @@
 import './App.css';
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button.tsx";
-import NetworkGraph from './pages/NetworkGraph';
-import GraphChatManager from './pages/GraphChatManager';
+// import NetworkGraph from './pages/NetworkGraph';
+// import GraphChatManager from './pages/GraphChatManager';
 import Dashboard from './components/Dashboard/Dashboard';
 import MatchesSection from './components/MatchesSection/MatchesSection';
 import { MatchData } from "./components/MatchesSection/types";
