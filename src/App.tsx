@@ -1,8 +1,6 @@
 import './App.css';
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { SignInButton, UserButton, useAuth } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button.tsx";
-// import NetworkGraph from './pages/NetworkGraph';
-// import GraphChatManager from './pages/GraphChatManager';
 import Dashboard from './components/Dashboard/Dashboard';
 import MatchesSection from './components/MatchesSection/MatchesSection';
 import { MatchData } from "./components/MatchesSection/types";
@@ -28,6 +26,8 @@ const MatchesContainer = styled.div`
 `;
 
 function App() {
+  const { isSignedIn } = useAuth();
+
   const exampleMatchData: MatchData = {
     name: "Alex Rivera",
     avatar: "https://m.media-amazon.com/images/S/amzn-author-media-prod/75e4qjid2d61alqo3rqooouaij._SY450_CR16%2C0%2C450%2C450_.jpg", // Add the avatar image URL here if available
@@ -43,14 +43,13 @@ function App() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <h2>SkillSync</h2>
-              <SignedOut>
+              {isSignedIn ? (
+                <UserButton />
+              ) : (
                 <Button variant="default">
                   <SignInButton />
                 </Button>
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
+              )}
             </div>
           </div>
         </header>
@@ -58,9 +57,14 @@ function App() {
           <DashboardContainer>
             <Dashboard />
           </DashboardContainer>
-          <MatchesContainer>
-            <MatchesSection matches={[exampleMatchData]} />
-          </MatchesContainer>
+          {isSignedIn ? (
+            <MatchesContainer>
+              <MatchesSection matches={[exampleMatchData]} />
+            </MatchesContainer>
+          ) : (
+            //here would go the onboarding component
+            <div></div>
+          )}
         </MainContainer>
       </div>
     </>
