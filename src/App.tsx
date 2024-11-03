@@ -45,9 +45,9 @@ const MainContainer1 = styled.div`
   gap: 20px;
 `;
 
-const MatchesContainer = styled.div`
-  flex: 1;
-`;
+// const MatchesContainer = styled.div`
+//   flex: 1;
+// `;
 
 // Wrapper to vertically align to the top of the viewport
 const CenteredFormContainer = styled.div`

@@ -3,8 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { UserRound, GraduationCap } from "lucide-react";
 
-const RoleStep = ({handleInputChange}) => {
-  const [selectedRole, setSelectedRole] = useState(null);
+const RoleStep = () => {
+  const [selectedRole, setSelectedRole] = useState<string | null>(null);
 
   const roles = [
     {

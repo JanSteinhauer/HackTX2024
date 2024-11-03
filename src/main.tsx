@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/multi-step-form",
-    element: <MultiStepForm />,
+    element:<MultiStepForm onFormComplete={() => console.log("Form completed")} />,
   },
 ]);
 

@@ -4,7 +4,7 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
-import Sidebar from "./Sidebar";
+// import Sidebar from "./Sidebar";
 import ProjectList from "./ProjectList";
 
 interface DashboardProps {}
@@ -14,7 +14,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     <DashboardContainer>
       <Header />
       <MainContent>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <ProjectList />
       </MainContent>
     </DashboardContainer>

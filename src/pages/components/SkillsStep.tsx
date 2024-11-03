@@ -18,7 +18,7 @@ function SkillsStep({setNewSkill, newSkill, handleAddSkill, handleRemoveSkill, f
         <Button onClick={handleAddSkill}>Add</Button>
       </div>
       <div className="flex flex-wrap gap-2 mt-4">
-        {formData.skills.map((skill, index) => (
+        {formData.skills.map((skill: string, index: number) => (
           <Badge key={index} variant="secondary" className="px-3 py-1">
             {skill}
             <X

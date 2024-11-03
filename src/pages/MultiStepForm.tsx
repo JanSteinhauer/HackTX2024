@@ -95,7 +95,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onFormComplete }) => {
     setFormData({
       ...formData,
       [section]: {
-        ...formData[section],
+        ...(formData[section] as PersonalInfo),
         [field]: value
       }
     });
@@ -165,7 +165,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onFormComplete }) => {
     switch(currentStep) {
       case 1:
         return (
-          <RoleStep handleInputChange={handleInputChange} />
+          <RoleStep />
         );
       case 2:
         return (
