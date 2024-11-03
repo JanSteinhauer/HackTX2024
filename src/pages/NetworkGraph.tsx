@@ -13,6 +13,7 @@ const NetworkGraph: React.FC = () => {
   const nodes: Node[] = Object.keys(nodeInfo).map((id) => ({
     id: parseInt(id),
     label: nodeInfo[parseInt(id)].title,
+    color: parseInt(id) >= 1 && parseInt(id) <= 5 ? '#FFA500' : undefined,
   }));
 
   const edges: Edge[] = Object.entries(nodeInfo).flatMap(([nodeId, data]) =>
