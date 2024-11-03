@@ -1,28 +1,15 @@
-import './App.css'
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
-import {Button} from "@/components/ui/button.tsx";
+import React from 'react';
+import NetworkGraph from './pages/NetworkGraph';
+import ChatPage from './pages/ChatPage';
 
-function App() {
-
+const App: React.FC = () => {
   return (
-    <>
-      <header className='border-b bg-background'>
-        <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-          <div className='flex h-16 items-center justify-between'>
-            <h2>SkillSync</h2>
-              <SignedOut>
-                <Button variant='default'>
-                  <SignInButton />
-                </Button>
-              </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </div>
-        </div>
-      </header>
-    </>
-  )
-}
+    <div className="App">
+      {/* <h1>SkillSync</h1> */}
+      {/* <NetworkGraph /> */}
+      <ChatPage />
+    </div>
+  );
+};
 
-export default App
+export default App;
