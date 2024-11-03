@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import MatchesSection from './components/MatchesSection/MatchesSection';
 import { MatchData } from "./components/MatchesSection/types";
 import styled from 'styled-components';
+import Onboarding from "@/pages/MultiStepForm.tsx";
 
 // Styled container to align Dashboard and MatchesSection side by side
 const MainContainer = styled.div`
@@ -45,7 +46,7 @@ function App() {
               <h2>SkillSync</h2>
               <SignedOut>
                 <Button variant="default">
-                  <SignInButton />
+                  <SignInButton forceRedirectUrl='/multi-step-form' />
                 </Button>
               </SignedOut>
               <SignedIn>
@@ -54,6 +55,9 @@ function App() {
             </div>
           </div>
         </header>
+        {/*<SignedIn>*/}
+        {/*  <Onboarding />*/}
+        {/*</SignedIn>*/}
         <MainContainer>
           <DashboardContainer>
             <Dashboard />
