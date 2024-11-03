@@ -16,7 +16,10 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, title, content }) => {
       <ModalContainer>
         <Title>{title}</Title>
         <Content>{content}</Content>
-        <CloseButton onClick={onClose}>Close</CloseButton>
+        <ButtonContainer>
+          <CloseButton onClick={onClose}>Close</CloseButton>
+          <ConnectButton>Connect</ConnectButton>
+        </ButtonContainer>
       </ModalContainer>
     </Overlay>
   );
@@ -55,8 +58,34 @@ const Content = styled.p`
   font-size: 1em;
 `;
 
-const CloseButton = styled.button`
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
   margin-top: 10px;
+`;
+
+const CloseButton = styled.button`
+  padding: 8px 16px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #bbb;
+  }
+`;
+
+const ConnectButton = styled.button`
+  padding: 8px 16px;
+  background-color: 000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #0056b3;
+  }
 `;
 
 export default Modal;
