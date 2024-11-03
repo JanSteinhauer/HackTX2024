@@ -5,6 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import RoleStep from "@/pages/components/RoleStep.tsx";
 import SkillsStep from "@/pages/components/SkillsStep.tsx";
 import PersonalInfoStep from "@/pages/components/PersonalInfoStep.tsx";
+import {useNavigate} from "react-router-dom";
 
 interface PersonalInfo {
   about: string;
@@ -40,7 +41,6 @@ interface StepIndicatorProps {
 
 interface SuccessMessageProps {
   formData: FormData;
-  onReset: () => void;
 }
 
 const MultiStepForm: React.FC = () => {
@@ -48,6 +48,7 @@ const MultiStepForm: React.FC = () => {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [newSkill, setNewSkill] = useState<string>('');
+  const navigate = useNavigate()
 
   const totalSteps = 3;
 
@@ -96,7 +97,7 @@ const MultiStepForm: React.FC = () => {
     });
   };
 
-  const SuccessMessage: React.FC<SuccessMessageProps> = ({ formData, onReset }) => (
+  const SuccessMessage: React.FC<SuccessMessageProps> = ({ formData }) => (
     <div className="text-center py-8 space-y-6">
       <div className="flex justify-center">
         <div className="rounded-full bg-green-100 p-3">
@@ -118,9 +119,9 @@ const MultiStepForm: React.FC = () => {
       </div>
       <Button
         className="mt-4"
-        onClick={onReset}
+        onClick={() => navigate('/')}
       >
-        Submit New Application
+        Home Page
       </Button>
     </div>
   );
@@ -180,12 +181,6 @@ const MultiStepForm: React.FC = () => {
     }
   };
 
-  const handleReset = (): void => {
-    setCurrentStep(1);
-    setIsCompleted(false);
-    setFormData(initialFormData);
-  };
-
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
@@ -193,7 +188,7 @@ const MultiStepForm: React.FC = () => {
       </CardHeader>
       <CardContent>
         {isCompleted ? (
-          <SuccessMessage formData={formData} onReset={handleReset} />
+          <SuccessMessage formData={formData} />
         ) : (
           renderStep()
         )}

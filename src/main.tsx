@@ -7,7 +7,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Onboarding from "@/pages/MultiStepForm.tsx";
+import MultiStepForm from "@/pages/MultiStepForm.tsx";
 
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/onboarding",
-    element: <Onboarding />,
+    path: "/multi-step-form",
+    element: <MultiStepForm />,
   },
 ]);
 

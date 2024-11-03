@@ -46,7 +46,7 @@ function App() {
               <h2>SkillSync</h2>
               <SignedOut>
                 <Button variant="default">
-                  <SignInButton />
+                  <SignInButton forceRedirectUrl='/multi-step-form' />
                 </Button>
               </SignedOut>
               <SignedIn>
@@ -55,9 +55,9 @@ function App() {
             </div>
           </div>
         </header>
-        <SignedIn>
-          <Onboarding />
-        </SignedIn>
+        {/*<SignedIn>*/}
+        {/*  <Onboarding />*/}
+        {/*</SignedIn>*/}
         <MainContainer>
           <DashboardContainer>
             <Dashboard />
