@@ -1,12 +1,14 @@
 import './App.css'
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import {Button} from "@/components/ui/button.tsx";
+import NetworkGraph from './pages/NetworkGraph';
 
 function App() {
 
   return (
     <>
-      <header className='border-b bg-background'>
+    <div>
+    <header className='border-b bg-background'>
         <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
           <div className='flex h-16 items-center justify-between'>
             <h2>SkillSync</h2>
@@ -21,6 +23,10 @@ function App() {
           </div>
         </div>
       </header>
+      <NetworkGraph/>
+    </div>
+    
+    
     </>
   )
 }

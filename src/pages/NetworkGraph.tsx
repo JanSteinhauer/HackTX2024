@@ -33,7 +33,7 @@ const NetworkGraph: React.FC = () => {
           size: 15,
           font: {
             size: 14,
-            color: '#ffff',
+            color: '#00000',
           },
         },
         edges: {
