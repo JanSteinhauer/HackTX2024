@@ -2,6 +2,7 @@ import './App.css'
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import {Button} from "@/components/ui/button.tsx";
 import NetworkGraph from './pages/NetworkGraph';
+import GraphChatManager from './pages/GraphChatManager';
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
           </div>
         </div>
       </header>
-      <NetworkGraph/>
+      <GraphChatManager/>
     </div>
     
     

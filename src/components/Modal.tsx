@@ -4,11 +4,12 @@ import styled from 'styled-components';
 interface ModalProps {
   show: boolean;
   onClose: () => void;
+  onChat?: () => void;
   title: string;
   content: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ show, onClose, title, content }) => {
+const Modal: React.FC<ModalProps> = ({ show, onClose, onChat, title, content }) => {
   if (!show) return null;
 
   return (
@@ -18,12 +19,26 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, title, content }) => {
         <Content>{content}</Content>
         <ButtonContainer>
           <CloseButton onClick={onClose}>Close</CloseButton>
-          <ConnectButton>Connect</ConnectButton>
+          {onChat && <ChatButton onClick={onChat}>Chat</ChatButton>}
         </ButtonContainer>
       </ModalContainer>
     </Overlay>
   );
 };
+
+// Styled Components
+const ChatButton = styled.button`
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #218838;
+  }
+`;
+
 
 // Styled Components
 const Overlay = styled.div`
@@ -78,7 +93,7 @@ const CloseButton = styled.button`
 
 const ConnectButton = styled.button`
   padding: 8px 16px;
-  background-color: 000000;
+  background-color: #000000;
   color: white;
   border: none;
   border-radius: 4px;
@@ -87,5 +102,7 @@ const ConnectButton = styled.button`
     background-color: #0056b3;
   }
 `;
+
+
 
 export default Modal;

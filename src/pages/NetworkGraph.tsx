@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Network, DataSet, Edge, Node, Options } from 'vis-network/standalone';
 import 'vis-network/styles/vis-network.css';
-import Modal from '../components/Modal';
-import { nodeInfo } from '../components/nodeInfo'; // Import nodeInfo from external file
+import { nodeInfo } from '../components/nodeInfo';
 
-const NetworkGraph: React.FC = () => {
+interface NetworkGraphProps {
+  onNodeClick: (nodeData: { title: string; content: string }) => void;
+}
+
+const NetworkGraph: React.FC<NetworkGraphProps> = ({ onNodeClick }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [selectedNode, setSelectedNode] = useState<{ title: string; content: string } | null>(null);
-  const [showModal, setShowModal] = useState(false);
 
   // Generate nodes and edges from nodeInfo
   const nodes: Node[] = Object.keys(nodeInfo).map((id) => ({
@@ -33,7 +34,7 @@ const NetworkGraph: React.FC = () => {
           size: 15,
           font: {
             size: 14,
-            color: '#00000',
+            color: '#000000',
           },
         },
         edges: {
@@ -59,32 +60,14 @@ const NetworkGraph: React.FC = () => {
           const nodeId = params.nodes[0];
           const nodeData = nodeInfo[nodeId];
           if (nodeData) {
-            setSelectedNode(nodeData);
-            setShowModal(true);
+            onNodeClick(nodeData); // Pass selected node data to parent component
           }
         }
       });
     }
-  }, [nodes, edges]);
+  }, [nodes, edges, onNodeClick]);
 
-  const closeModal = () => {
-    setShowModal(false);
-    setSelectedNode(null);
-  };
-
-  return (
-    <div>
-      <div ref={containerRef} style={{ width: '100%', height: '500px' }} />
-      {selectedNode && (
-        <Modal
-          show={showModal}
-          onClose={closeModal}
-          title={selectedNode.title}
-          content={selectedNode.content}
-        />
-      )}
-    </div>
-  );
+  return <div ref={containerRef} style={{ width: '100%', height: '500px' }} />;
 };
 
 export default NetworkGraph;
