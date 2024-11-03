@@ -61,14 +61,14 @@ const Title = styled.h1`
   }
 `;
 
-const ProfileImage = styled.img`
-  aspect-ratio: 1;
-  object-fit: contain;
-  object-position: center;
-  width: 64px;
-  border-radius: 50%;
-  align-self: flex-start;
-`;
+// const ProfileImage = styled.img`
+//   aspect-ratio: 1;
+//   object-fit: contain;
+//   object-position: center;
+//   width: 64px;
+//   border-radius: 50%;
+//   align-self: flex-start;
+// `;
 
 const SectionTitle = styled.h2`
   color: #0d062d;
