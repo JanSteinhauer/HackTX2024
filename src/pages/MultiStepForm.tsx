@@ -5,14 +5,17 @@ import { CheckCircle2 } from "lucide-react";
 import RoleStep from "@/pages/components/RoleStep.tsx";
 import SkillsStep from "@/pages/components/SkillsStep.tsx";
 import PersonalInfoStep from "@/pages/components/PersonalInfoStep.tsx";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+interface MultiStepFormProps {
+  onFormComplete: () => void;
+}
 
 interface PersonalInfo {
   about: string;
   experience: number;
   motivation: string;
 }
-
 
 interface FormData {
   personalInfo: PersonalInfo;
@@ -43,12 +46,12 @@ interface SuccessMessageProps {
   formData: FormData;
 }
 
-const MultiStepForm: React.FC = () => {
+const MultiStepForm: React.FC<MultiStepFormProps> = ({ onFormComplete }) => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [newSkill, setNewSkill] = useState<string>('');
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const totalSteps = 3;
 
@@ -57,6 +60,7 @@ const MultiStepForm: React.FC = () => {
       setCurrentStep(currentStep + 1);
     } else {
       setIsCompleted(true);
+      onFormComplete(); // Notify App that the form is complete
     }
   };
 
