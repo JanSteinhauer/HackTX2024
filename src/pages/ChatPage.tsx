@@ -24,7 +24,7 @@ const personas: Persona[] = [
 const ChatPageContainer = styled.div`
   display: flex;
   height: 91vh;
-  width: 100vw; /* Take up the full width of the viewport */
+  width: 88vw; /* Take up the full width of the viewport */
   font-family: Arial, sans-serif;
   color: #333;
 `;
